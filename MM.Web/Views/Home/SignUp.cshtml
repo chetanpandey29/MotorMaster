@@ -1,0 +1,90 @@
+﻿@model MM.Web.User
+@{
+    ViewBag.Title = "SignUp";
+}
+<div id="wrap-body" class="p-t-lg-30">
+    <div class="container">
+        <div class="wrap-body-inner">
+            <!-- Breadcrumb-->
+            <div class="hidden-xs">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <ul class="ht-breadcrumb pull-left">
+                            <li class="home-act"><a href="#"><i class="fa fa-home"></i></a></li>
+                            <li class="home-act"><a href="#">My Account</a></li>
+                            <li class="active">Register</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @using (Html.BeginForm())
+            {
+            <!-- Register -->
+                <section class="block-login m-t-lg-30 m-t-xs-0 m-b-lg-50">
+                    <div class="">
+                        <div class="row">
+                            <div class="col-md-8 col-lg-6 col-md-offset-2 col-lg-offset-3">
+                                <div class="heading">
+                                    <h3>Create an Account</h3>
+                                </div>
+                                <div class="p-lg-30 p-xs-15 bg-gray-f5 bg1-gray-15">
+                                    <p class="m-b-lg-15">Compete all fill below to create an account!</p>
+                                    <form>
+                                        <div class="form-group">
+                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control form-item", placeholder = "Enter Email", title = "Please enter a valid Email" } })
+                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+                                            @*<input type="email" class="form-control form-item" placeholder="Email">*@
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control form-item", placeholder = "Enter Name", title = "Please enter a valid Name" } })
+                                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                            @*<input type="text" class="form-control form-item" placeholder="Name">*@
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control form-item", placeholder = "Enter Password", title = "Please enter a valid Password" } })
+                                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+                                            @*<input type="password" class="form-control form-item" placeholder="Password">*@
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control form-item", placeholder = "Enter Password", title = "Please enter a valid Password" } })
+                                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                            @*<input type="password" class="form-control form-item" placeholder="Enter your password again">*@
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control form-item", placeholder = "Enter Phone", title = "Please enter a valid Phone" } })
+                                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                                            @*<input type="text" class="form-control form-item" placeholder="Phone">*@
+                                        </div>
+                                        <div class="form-group">
+                                            @*@Html.EditorFor(model => model.Dealer)*@
+                                            @*@Html.EditorFor(m => m.Dealer,true)*@
+                                            <div class="col-md-6">
+                                                @Html.EditorFor(model => model.Dealer, new { id = "Dealer", Name = "Group" }) Dealer
+                                                @Html.EditorFor(model => model.Individual, new { id = "Individual", Name = "Group" }) Individual
+                                                @*@Html.RadioButtonFor(model => model.Dealer,true, new { id = "Dealer", Name ="Group"}) <label for="Dealer">Dealer</label>*@
+                                                @*@Html.RadioButtonFor(model => model.Individual, false, new { id = "Individual", Name = "Group"}) <label for="Individual">Individual</label>*@
+                                            </div>
+                                            @*@Html.RadioButtonFor(model => model.Individual, "Individual", new { htmlAttributes = new { @class = "form-control form-item"} })*@
+                                            @*<div class="col-md-6"><input type="radio"> Dealer</div>
+                                                <div class="col-md-6"><input type="radio"> Individual</div>*@
+                                            <p>&nbsp;</p>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.EditorFor(model => model.DealerName, new { htmlAttributes = new { @class = "form-control form-item", placeholder = "Enter Dealer Name", title = "Please enter a valid Dealer Name" } })
+                                            @Html.ValidationMessageFor(model => model.DealerName, "", new { @class = "text-danger" })
+                                            @*<input type="text" class="form-control form-item" placeholder="Dealer Name">*@
+                                        </div>
+
+                                        <button type="submit" class="ht-btn ht-btn-default">Register</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            }
+        </div>
+    </div>
+</div>
